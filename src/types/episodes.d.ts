@@ -21,7 +21,7 @@ export type episodesType = {
   airdate?: string;
 };
 
-export type HomeType = {
+export type useShowType = {
   loading?: boolean;
   showInfo?: showInfoType
 }

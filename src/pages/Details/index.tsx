@@ -5,7 +5,7 @@ import { Container } from 'components/Container/Container.styles';
 import * as S from './Details.styles';
 
 const Details = (): JSX.Element => {
-  const [showInfo, loading] = useShow();
+  const { showInfo, loading } = useShow();
   const { id: paramsID } = useParams();
 
   const episodeDetails = showInfo?._embedded?.episodes?.find(

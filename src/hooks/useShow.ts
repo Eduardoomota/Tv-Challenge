@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getShowInfoThunk } from 'store/thunk/showInfoThunk';
 import { RootState } from 'store';
-import { showInfoType } from 'types/episodes';
+import { useShowType } from 'types/episodes';
 
-export const useShow = (): [showInfoType, boolean] => {
+export const useShow = (): useShowType => {
   const [loading, setLoading] = useState(true);
 
   const dispatch = useDispatch();
@@ -16,5 +16,5 @@ export const useShow = (): [showInfoType, boolean] => {
       : setLoading(false);
   }, [showInfo]);
 
-  return [showInfo, loading];
+  return { showInfo, loading };
 };

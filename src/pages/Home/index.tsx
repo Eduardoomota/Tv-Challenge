@@ -1,25 +1,26 @@
 import Loading from 'components/Loading';
 import EpisodesList from 'components/EpisodesList';
-
-import { HomeType } from 'types/episodes';
-
+import { useShow } from 'hooks/useShow';
 import { Container } from 'components/Container/Container.styles';
 
 import * as S from './Home.styles';
 
-const Home = ({ loading, showInfo }: HomeType): JSX.Element => {
+const Home = (): JSX.Element => {
+  const { showInfo, loading } = useShow();
+
   if (loading) return <Loading />;
 
   return (
     <Container>
       <S.Row>
         <S.ShowImageBox>
-          <S.ShowImage src={showInfo?.image?.medium} alt="PowerPuff Girls" />
+          <S.ShowImage src={showInfo?.image?.medium} alt={showInfo?.name} />
         </S.ShowImageBox>
 
         <S.Details>
           <S.DetailsTitle>{showInfo?.name}</S.DetailsTitle>
           <div
+            data-testid="summary"
             dangerouslySetInnerHTML={{ __html: showInfo?.summary as string }}
           />
         </S.Details>
