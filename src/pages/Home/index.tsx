@@ -1,13 +1,13 @@
 import Loading from 'components/Loading';
 import EpisodesList from 'components/EpisodesList';
-import { useShow } from 'hooks/useShow';
+
+import { HomeType } from 'types/episodes';
 
 import { Container } from 'components/Container/Container.styles';
+
 import * as S from './Home.styles';
 
-const Home = (): JSX.Element => {
-  const [showInfo, loading] = useShow();
-
+const Home = ({ loading, showInfo }: HomeType): JSX.Element => {
   if (loading) return <Loading />;
 
   return (
@@ -18,7 +18,7 @@ const Home = (): JSX.Element => {
         </S.ShowImageBox>
 
         <S.Details>
-          <S.DetailsTitle>{showInfo.name}</S.DetailsTitle>
+          <S.DetailsTitle>{showInfo?.name}</S.DetailsTitle>
           <div
             dangerouslySetInnerHTML={{ __html: showInfo?.summary as string }}
           />

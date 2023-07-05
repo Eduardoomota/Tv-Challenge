@@ -20,3 +20,8 @@ export type episodesType = {
   summary?: string;
   airdate?: string;
 };
+
+export type HomeType = {
+  loading?: boolean;
+  showInfo?: showInfoType
+}
